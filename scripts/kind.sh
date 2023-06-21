@@ -130,7 +130,7 @@ _install_additional_controller() {
 
 _perform_helm_login() {
   # ECR Public only exists in us-east-1 so use that region specifically
-  daws ecr-public get-login-password --region us-east-1 | helm registry login -u AWS --password-stdin public.ecr.aws
+  aws ecr-public get-login-password --region us-east-1 | helm registry login -u AWS --password-stdin public.ecr.aws
 }
 
 ensure_binaries() {
